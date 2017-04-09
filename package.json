@@ -1,0 +1,19 @@
+{
+  "name": "jiitportalweb",
+  "version": "1.0.0",
+  "description": "Web Portal for JIIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nipungarg59/JPortalWeb.git"
+  },
+  "author": "nipungarg59",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nipungarg59/JPortalWeb/issues"
+  },
+  "homepage": "https://github.com/nipungarg59/JPortalWeb#readme"
+}
