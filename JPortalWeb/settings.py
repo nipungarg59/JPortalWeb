@@ -113,16 +113,16 @@ WSGI_APPLICATION = 'JPortalWeb.wsgi.application'
 
 
 # IF You are using your own database
-# DATABASES = {
-#     'default': getDatabaseDetails()
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': getDatabaseDetails()
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
