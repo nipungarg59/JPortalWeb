@@ -38,7 +38,7 @@ SECRET_KEY = getKey()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getDebugState()
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.16.110.197','127.0.0.1','jiitportal.herokuapp.com']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
