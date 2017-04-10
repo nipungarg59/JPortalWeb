@@ -12,9 +12,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <title>JIIT Portal</title>    
+    <title>JIIT Portal</title>
    
   </head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'jportal.css' %}" />
   <body>
     {% block main %}{% endblock %}
   </body>
