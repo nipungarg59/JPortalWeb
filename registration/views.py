@@ -41,14 +41,19 @@ class loginList(APIView):
         cook = c.cookies['JSESSIONID']
         cooki = dict(JSESSIONID=cook)
         reslogin = c.post("https://webkiosk.jiit.ac.in/CommonFiles/UserActionn.jsp", data=params, cookies=cooki)
-        cgpa_resp = c.get("https://webkiosk.jiit.ac.in/StudentFiles/Academic/StudSubjectTaken.jsp", cookies=cooki)
-        html = BeautifulSoup(cgpa_resp.content, 'html.parser')
-        rows = html.find_all("table")
-        subjectlists = rows[2].find_all("tr")
-        subject_list = []
-        for subjectlist in subjectlists:
-            cols = subjectlist.find_all('td')
-            temp = {"subject": cols[1].text.strip()}
-            subject_list.append(temp)
-        print(subject_list)
-        return Response(content)
+        test = '#### JIIT  [ Signin Action ] '
+        html = BeautifulSoup(reslogin.content, 'html.parser')
+        if html.title and html.title.string.find(test) == 0:
+            return Response(error)
+        else:
+            cgpa_resp = c.get("https://webkiosk.jiit.ac.in/StudentFiles/Academic/StudSubjectTaken.jsp", cookies=cooki)
+            html = BeautifulSoup(cgpa_resp.content, 'html.parser')
+            rows = html.find_all("table")
+            subjectlists = rows[2].find_all("tr")
+            subject_list = []
+            for subjectlist in subjectlists:
+                cols = subjectlist.find_all('td')
+                temp = {"subject": cols[1].text.strip()}
+                subject_list.append(temp)
+            print(subject_list)
+            return Response(content)
