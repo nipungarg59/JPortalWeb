@@ -1,14 +1,113 @@
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Log In<<<<<<<<<<<<<<<<<<<<<<<*/
 .login{
-	background-color: rgb(38, 46, 52);
-	height: auto;
+	/*background-color: rgb(38, 0, 52);*/
+	background-image: url('/static/images/loginBackground.jpg');
+	background-repeat: repeat-y;
+	background-position: center;
+  	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.login-modal{
+	margin: 8% auto;
+	text-align: center;
+	position: relative;
+	width:50%;       
+	background-color: rgba(38, 46, 52, 0.7); 
+  	box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+}
+
+.login-heading1{
+	margin: 7% auto;
+	font-size: 281.25%;
+}
+
+.login-heading2{
+	margin-top: 5%;
+	font-size: 25px;
+}
+
+
+@media screen and (max-width:959px)  {
+	.login-modal{
+		margin: 15% 25%;
+	}
+}
+@media screen and (max-width: 708px) {
+	.login-modal{
+		margin: 20% 15%;
+		width: 65%
+	}
+}
+@media screen and (max-width: 546px){
+	.login-modal{
+		margin: 35% auto;
+		width: 87%
+	}
+}
+@media screen and (max-width: 357px) {
+	.login-modal{
+		margin: 50% auto;
+		width: 92%
+	}
+	.login-heading1{
+		font-size: 200%;
+	}	
+	.login-heading2{
+		font-size: 111.11%;
+	}
+}
+@media screen and (max-width: 327px) {
+	.login-modal{
+		margin: 55% auto;
+		width: 95%
+	}
+}
+@media screen and (max-width: 300px) {
+	.login-modal{
+		margin: 65% auto;
+		width: 97%
+	}
+}
+
+
+.login-heading3{
+	font-size: 15px;
+	margin-bottom: 7%;
 }
 .login-text-color{
 	color: rgb(251, 252, 252);
 }
-.login-modal{
-	margin: 40px auto;
-	text-align: center;
-	position: relative;
-	width:400px;        
-  	box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+
+.login-input-field{
+	width:60%;
+	margin: 5% auto;
+}
+
+.login-input-field input{
+	background-color: rgba(38, 46, 52, 0.7);
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	box-shadow: none;
+	border-radius: 0px;
+	color: rgb(251, 252, 252);
+}
+
+.login-input-field-placeholder::-webkit-input-placeholder { color: rgb(251, 252, 252); }
+.login-input-field-placeholder:-moz-placeholder { color: rgb(251, 252, 252); }
+.login-input-field-placeholder::-moz-placeholder { color: rgb(251, 252, 252); }
+.login-input-field-placeholder:-ms-input-placeholder { color: rgb(251, 252, 252); }
+
+.submit-button{
+	width:60%;
+	border-radius: 0px;
+	margin-bottom: 5%; 
+	background-color: rgb(104, 176, 240);
+}
+
+.submit-button span{
+	color: rgb(251, 252, 252);
 }
