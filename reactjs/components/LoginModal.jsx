@@ -5,8 +5,8 @@ import React from "react"
 export default class LoginModal extends React.Component {
   render() {
     return(
-    	<div className="login-modal container">
-    	LogIn
+    	<div className="container login-modal">
+    	<span className="login-text-color">LogIn</span>
     	</div>)
   }
 }

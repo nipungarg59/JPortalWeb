@@ -7,7 +7,7 @@ import LoginModal from "./LoginModal"
 class Index extends React.Component {
   render() {
     return(
-    	<div className="login">
+    	<div className="container-fluid login">
     	<p>jhfd</p>
     	<h1>jsdfkdsngfjkdsnfjs</h1>
     	<LoginModal/>
