@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views import generic
+from registration import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', views.loginList.as_view()),
     url(r'^$', generic.TemplateView.as_view(template_name='mainview.html')),
 ]

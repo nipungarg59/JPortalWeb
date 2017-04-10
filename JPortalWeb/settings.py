@@ -75,6 +75,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
+    'registration.apps.RegistrationConfig',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
