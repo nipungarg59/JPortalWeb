@@ -6,21 +6,19 @@ from rest_framework.views import APIView
 from .serializers import *
 
 # Create your views here.
-content = [
-    {
+content ={
         'error': 0,
         'response': 'success',
         'id': 0
     }
-]
 
-error = [
-    {
+
+error = {
         'error': 1,
         'response': 'fail',
         'id': 0
     }
-]
+
 
 
 class loginList(APIView):
