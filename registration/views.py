@@ -38,26 +38,22 @@ class loginList(APIView):
                   'BTNSubmit': 'Submit'}
         cook = c.cookies['JSESSIONID']
         cooki = dict(JSESSIONID=cook)
-        # print("Cookie1",cooki)
-        # request.session['cookie'] = cooki
-        # print("Cookie2",request.session['cookie'])
         reslogin = c.post("https://webkiosk.jiit.ac.in/CommonFiles/UserActionn.jsp", data=params, cookies=cooki)
         test = '#### JIIT  [ Signin Action ] '
-        # print("Cookie3", cooki)
         html = BeautifulSoup(reslogin.content, 'html.parser')
         if html.title and html.title.string.find(test) == 0:
             return Response(error)
         else:
-            student = {
-                'enrollment': data['eno'],
-                'cookie': cooki['JSESSIONID']
-            }
-            if Cookie.objects.filter(enrollment=student['enrollment']):
-                Cookie.objects.filter(enrollment=student['enrollment']).update(cookie=student['cookie'])
-                return Response(content)
-            else:
-                c_serializer = CookieSerializer(data=student)
-                if c_serializer.is_valid():
-                    c_serializer.save()
-                    return Response(content)
-                return Response(error)
+            # student = {
+            #     'enrollment': data['eno'],
+            #     'cookie': cooki['JSESSIONID']
+            # }
+            # if Cookie.objects.filter(enrollment=student['enrollment']):
+            #     Cookie.objects.filter(enrollment=student['enrollment']).update(cookie=student['cookie'])
+            #     return Response(content)
+            # else:
+            #     c_serializer = CookieSerializer(data=student)
+            #     if c_serializer.is_valid():
+            #         c_serializer.save()
+            #         return Response(content)
+            return Response(content)
