@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta property="og:image" content="https://dejanseo.com.au/wp-content/uploads/2012/04/all.png"/>
+    {% load static %}
+    <meta property="og:image" content="{% static 'images/loginBackground.jpg' %}"/>
     <meta property="og:title" content="JIIT Portal" />
     <meta property="og:description" content="Portal for JIITians that can be used to view attendence, food menu, Exam seating Plan and other important things going around the college." />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="shortcut icon" href="https://dejanseo.com.au/wp-content/uploads/2012/04/all.png" type="image/png" sizes="16x16">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/loginBackground.jpg' %}" type="image/jpg" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
