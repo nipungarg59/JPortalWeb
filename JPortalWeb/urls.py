@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views import generic
 
-from crawl.views import StudSubjectTaken
+# from crawl.views import StudSubjectTaken
 from registration import views
 
 urlpatterns = [
