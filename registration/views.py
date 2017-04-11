@@ -6,19 +6,17 @@ from rest_framework.views import APIView
 from .serializers import *
 
 # Create your views here.
-content ={
-        'error': 0,
-        'response': 'success',
-        'id': 0
-    }
-
+content = {
+    'error': 0,
+    'response': 'success',
+    'id': 0
+}
 
 error = {
-        'error': 1,
-        'response': 'fail',
-        'id': 0
-    }
-
+    'error': 1,
+    'response': 'fail',
+    'id': 0
+}
 
 
 class loginList(APIView):
@@ -40,8 +38,12 @@ class loginList(APIView):
                   'BTNSubmit': 'Submit'}
         cook = c.cookies['JSESSIONID']
         cooki = dict(JSESSIONID=cook)
+        # print("Cookie1",cooki)
+        # request.session['cookie'] = cooki
+        # print("Cookie2",request.session['cookie'])
         reslogin = c.post("https://webkiosk.jiit.ac.in/CommonFiles/UserActionn.jsp", data=params, cookies=cooki)
         test = '#### JIIT  [ Signin Action ] '
+        # print("Cookie3", cooki)
         html = BeautifulSoup(reslogin.content, 'html.parser')
         if html.title and html.title.string.find(test) == 0:
             return Response(error)
