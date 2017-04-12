@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webpack_loader',
     'registration.apps.RegistrationConfig',
+    'crawl.apps.CrawlConfig',
     'rest_framework',
 
 ]

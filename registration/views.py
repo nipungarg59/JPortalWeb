@@ -3,22 +3,20 @@ from bs4 import BeautifulSoup
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-# Create your views here.
-content = [
-    {
-        'error': 0,
-        'response': 'success',
-        'id': 0
-    }
-]
+from .serializers import *
 
-error = [
-    {
-        'error': 1,
-        'response': 'fail',
-        'id': 0
-    }
-]
+# Create your views here.
+content = {
+    'error': 0,
+    'response': 'success',
+    'id': 0
+}
+
+error = {
+    'error': 1,
+    'response': 'fail',
+    'id': 0
+}
 
 
 class loginList(APIView):
@@ -46,14 +44,16 @@ class loginList(APIView):
         if html.title and html.title.string.find(test) == 0:
             return Response(error)
         else:
-            cgpa_resp = c.get("https://webkiosk.jiit.ac.in/StudentFiles/Academic/StudSubjectTaken.jsp", cookies=cooki)
-            html = BeautifulSoup(cgpa_resp.content, 'html.parser')
-            rows = html.find_all("table")
-            subjectlists = rows[2].find_all("tr")
-            subject_list = []
-            for subjectlist in subjectlists:
-                cols = subjectlist.find_all('td')
-                temp = {"subject": cols[1].text.strip()}
-                subject_list.append(temp)
-            print(subject_list)
+            # student = {
+            #     'enrollment': data['eno'],
+            #     'cookie': cooki['JSESSIONID']
+            # }
+            # if Cookie.objects.filter(enrollment=student['enrollment']):
+            #     Cookie.objects.filter(enrollment=student['enrollment']).update(cookie=student['cookie'])
+            #     return Response(content)
+            # else:
+            #     c_serializer = CookieSerializer(data=student)
+            #     if c_serializer.is_valid():
+            #         c_serializer.save()
+            #         return Response(content)
             return Response(content)
