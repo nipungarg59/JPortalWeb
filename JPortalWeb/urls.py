@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^StudSubjectTaken/$', StudSubjectTaken.as_view()),
     url(r'^StudCGPAReport/$', StudCGPAReport.as_view()),
     url(r'^StudSubjectFaculty/$', StudSubjectFaculty.as_view()),
+    url(r'^StudentEventGradesView/$', StudentEventGradesView.as_view()),
     url(r'^$', generic.TemplateView.as_view(template_name='mainview.html')),
 ]

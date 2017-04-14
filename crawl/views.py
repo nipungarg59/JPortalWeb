@@ -145,3 +145,50 @@ class StudSubjectFaculty(APIView):
                 teacher_list.append(temp)
             content['data'] = teacher_list
             return Response(content)
+
+
+class StudentEventGradesView(APIView):
+    def post(self, request):
+        data = request.data
+        c = requests.Session()
+        c.get("https://webkiosk.jiit.ac.in")
+        params = {'x': '',
+                  'txtInst': 'Institute',
+                  'InstCode': 'JIIT',
+                  'txtuType': 'Member Type',
+                  'UserType': 'S',
+                  'txtCode': 'Enrollment No',
+                  'MemberCode': data['eno'],
+                  'DOB': 'DOB',
+                  'DATE1': data['dob'],
+                  'txtPin': 'Password/Pin',
+                  'Password': data['password'],
+                  'BTNSubmit': 'Submit'}
+        cook = c.cookies['JSESSIONID']
+        cooki = dict(JSESSIONID=cook)
+        reslogin = c.post("https://webkiosk.jiit.ac.in/CommonFiles/UserActionn.jsp", data=params, cookies=cooki)
+        test = '#### JIIT  [ Signin Action ] '
+        html = BeautifulSoup(reslogin.content, 'html.parser')
+        if html.title and html.title.string.find(test) == 0:
+            return Response(error)
+        else:
+            content['id'] = data['eno']
+            form = {
+                'x': '',
+                'exam': data['exam']
+            }
+            grade = c.get("https://webkiosk.jiit.ac.in/StudentFiles/Exam/StudentEventGradesView.jsp", params=form,
+                          cookies=cooki)
+            html = BeautifulSoup(grade.content, 'html.parser')
+            rows = html.find_all("table")
+            subjects = rows[2].find_all("tr")
+            subject_list = []
+            for val in subjects:
+                cols = val.find_all('td')
+                temp = {
+                    "Subject": cols[1].text.strip(),
+                    "EXAM CODE": cols[2].text.strip(),
+                    "GRADE AWARDED": cols[3].text.strip()}
+                subject_list.append(temp)
+            content['data'] = subject_list
+            return Response(content)
