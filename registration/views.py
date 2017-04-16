@@ -1,8 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from rest_framework.response import Response
 from .serializers import *
 
 # Create your views here.
@@ -44,16 +43,4 @@ class loginList(APIView):
         if html.title and html.title.string.find(test) == 0:
             return Response(error)
         else:
-            # student = {
-            #     'enrollment': data['eno'],
-            #     'cookie': cooki['JSESSIONID']
-            # }
-            # if Cookie.objects.filter(enrollment=student['enrollment']):
-            #     Cookie.objects.filter(enrollment=student['enrollment']).update(cookie=student['cookie'])
-            #     return Response(content)
-            # else:
-            #     c_serializer = CookieSerializer(data=student)
-            #     if c_serializer.is_valid():
-            #         c_serializer.save()
-            #         return Response(content)
             return Response(content)
