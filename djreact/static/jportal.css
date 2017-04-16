@@ -3,7 +3,8 @@
 .login{
 	/*background-color: rgb(38, 0, 52);*/
 	background-image: url('/static/images/loginBackground.jpg');
-	background-repeat: repeat-y;
+	/*background-repeat: repeat-y;*/
+	min-height: 100vh;
 	background-position: center;
   	background-size: cover;
 	height: 100%;
